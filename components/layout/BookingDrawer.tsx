@@ -99,14 +99,14 @@ import Image from "next/image";
                 <DrawerContent className={`${ diploma ? "h-[70vh] md:h-[60vh]" : "md:h-]"}`}>
                     <DrawerHeader className="container max-w-7xl mx-auto space-y-10 overflow-y-scroll md:overflow-y-auto">
                         {diploma ? <div className="flex flex-col md:flex-row gap-4">
-                            <Image src={BaseUrl + diploma?.image?.url} className="size-20 md:size-40 hidden md:block" alt={diploma?.image?.alternativeText} width={1500} height={1500} />
+                            <Image src={BaseUrl + diploma?.image?.url} className="size-20 md:size-40 hidden md:block" alt={diploma?.image?.alternativeText || "alt"} width={1500} height={1500} />
                             <div className="space-y-4 flex flex-col justify-center">
                                 <DrawerTitle>{diploma.text}</DrawerTitle>
                                 <DrawerDescription>{diploma.description}</DrawerDescription>
                             </div>
                         </div>: 
                         <div className="flex justify-center gap-4">
-                          <span className="text-2xl font-bold uppercase">Booking Diploma Now</span>
+                          <span className="text-2xl font-bold uppercase">Register Diploma</span>
                         </div>
                         }
                         <form
@@ -180,7 +180,7 @@ import Image from "next/image";
                                     <SelectContent>
                                         {diplomas?.map((item) => (
                                             <SelectItem key={item.documentId} value={item.documentId}>
-                                            {item.text}
+                                              {item.text}
                                             </SelectItem>
                                         ))}
                                     </SelectContent>

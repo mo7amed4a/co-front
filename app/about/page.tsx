@@ -3,8 +3,11 @@ import RichViewer from "@/components/diploma/RichViewer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { api, BaseUrl } from "@/lib/axios";
+import { diplomaString } from "@/lib/queryGraphql";
 import { DiplomaType } from "@/types/types";
 import Link from "next/link";
+
+export const dynamic = "force-dynamic"
 
 export default async function AboutPage() {
   const res = await api.post("", {
@@ -24,21 +27,7 @@ export default async function AboutPage() {
             }
           }
         }
-          diplomas {
-    documentId
-    text
-    description
-    long_description
-    image {
-      alternativeText
-      url
-    }
-    images {
-      alternativeText
-      url
-    }
-    createdAt
-  }
+          diplomas ${diplomaString}
       }`,
   });
   const data = res.data.data.about

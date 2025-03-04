@@ -20,7 +20,7 @@ export default function BlogCard({
   return blog && (
     <Card className={`w-full shadow-none bg-transparent rounded-none border-none ${col ? "grid lg:grid-cols-2 gap-4": " flex flex-col " + !full && "max-w-md"}`}>
         <CardHeader className={`${col? "py-0" : ""} p-0`}>
-            <Image src={BaseUrl + blog?.image.url} className={`${col ? 'size-full' : "size-full lg:h-72"}`} width={1200} height={1200} alt={blog?.image?.alternativeText}/>
+            <Image src={BaseUrl + blog?.image.url} className={`${col ? 'size-full' : "size-full lg:h-72"}`} width={1200} height={1200} alt={blog?.image?.alternativeText || "alt"}/>
         </CardHeader>
         <Link href={`/blogs/${blog?.documentId}`} className={`${col? "flex flex-col justify-center h-full" : "pt-8"}`} >
             <CardContent className={` px-0 space-y-2`}>

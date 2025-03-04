@@ -153,7 +153,7 @@ export default function BookingForm() {
             <SelectContent>
                 {diplomas?.map((item) => (
                     <SelectItem key={item.documentId} value={item.documentId}>
-                    {item.text}
+                      {item.text}
                     </SelectItem>
                 ))}
             </SelectContent>

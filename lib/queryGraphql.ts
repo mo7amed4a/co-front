@@ -1,5 +1,42 @@
-export const QueryHome = ` 
-query HomePage {
+export const diplomaString = `{
+  documentId
+  text
+  description
+  long_description
+  image {
+    alternativeText
+    url
+  }
+  images {
+    documentId
+    alternativeText
+    url
+  }
+  price
+  date 
+  video {
+    url
+  }
+  discount
+  badge
+  createdAt
+}
+`;
+
+const blogString = `{
+    documentId
+    title
+    descripton
+    content
+    image {
+      alternativeText
+      url
+    }
+    createdAt
+  }
+`;
+
+export const QueryHome = ` query HomePage {
   homePage {
     slider {
       id
@@ -16,6 +53,10 @@ query HomePage {
         color
       }
     }
+    coming_soon {
+      title
+      diploma ${diplomaString}
+    }
     AboutSection {
       id
       title
@@ -30,6 +71,17 @@ query HomePage {
         id
       }
     }
+    team {
+      teams {
+        documentId
+        name
+        photo {
+          alternativeText
+          url
+        }
+        title
+      }
+    }
     faqs {
       title
       questions {
@@ -40,211 +92,98 @@ query HomePage {
     }
     diplomas {
       title
-      diplomas {
-        documentId
-        text
-        description
-        long_description
-        image {
-          alternativeText
-          url
-        }
-        images {
-          alternativeText
-          url
-        }
-        createdAt
-      }
+      diplomas ${diplomaString}
     }
     blogs {
-      blogs {
-        documentId
-        title
-        descripton
-        content
-        image {
-          alternativeText
-          url
-        }
-        createdAt
+      blogs ${blogString} 
+    }
+    register {
+      title
+      image {
+        alternativeText
+        url
       }
     }
   }
 }
-`
+`;
 
 export const QueryLayout = `
-query Layout {
-  global {
-    siteName
-    siteDescription
-    favicon {
-      url
-      alternativeText
-      caption
-    }
-    defaultSeo {
-      metaKeywords
-      shareImage {
-        url
-        alternativeText
-        caption
-      }
-    }
-  }
-  sidebar {
-    image {
-      url
-      alternativeText
-      caption
-    }
+    query Layout {
+  website {
     title
+    description
+    keywords
+  }
+  navbar {
+    links {
+      id
+      title
+      link
+    }
+    whatsapp
+  }
+  footer {
     description
     links {
       id
-      icon
-      text
-      url
+      title
+      link
     }
-    social {
-      id
-      icon
-      text
-      url
+    social_links {
+      facebook
+      x
+      instagram
+    }
+      contact_links {
+      email
+      address
+      phone
     }
   }
 }
-`
-
-
-export const QueryGetProject = `
-  query Project($documentId: ID!) {
-  project(documentId: $documentId) {
-    title
-    short_description
-    image {
-      documentId
-      url
-      alternativeText
-    }
-    album {
-      documentId
-      url
-      alternativeText
-    }
-    link
-    video {
-      url
-      alternativeText
-    }
-    description
-    services {
-      documentId
-      title
-    }
-    tools {
-      documentId
-      title
-    }
-  }
-}
-`
-
+`;
 export const QueryGetDiplomas = `
   query Diplomas {
-  diplomas {
-    documentId
-    text
-    description
-    long_description
-    image {
-      alternativeText
-      url
+    diplomas ${diplomaString}
+    diplomasPage {
+      hero {
+        title
+        description
+        background {
+          alternativeText
+          url
+        }
+      }
     }
-    images {
-      alternativeText
-      url
-    }
-    createdAt
   }
-
-}
-`
+`;
 
 export const QueryGetDiploma = `
   query Diplomas($documentId: ID!) {
-  diplomas {
-    documentId
-    text
-    description
-    long_description
-    image {
-      alternativeText
-      url
-    }
-    images {
-      documentId
-      alternativeText
-      url
-    }
-    createdAt
-  }
-     diploma(documentId: $documentId) {
- documentId
-    text
-    description
-    long_description
-    image {
-      alternativeText
-      url
-    }
-    images {
-      alternativeText
-      url
-    }
-    createdAt
+    diplomas ${diplomaString}
+    diploma(documentId: $documentId) ${diplomaString}
 }
-}
-`
+`;
 
 export const QueryGetBlog = `
   query Blogs($documentId: ID!) {
-  blogs {
-    documentId
-    title
-    descripton
-    content
-    image {
-      alternativeText
-      url
-    }
-    createdAt
-  }
-  blog(documentId: $documentId) {
-     documentId
-    title
-    descripton
-    content
-    image {
-      alternativeText
-      url
-    }
-    createdAt
-  }
+  blogs ${blogString}
+  blog(documentId: $documentId) ${blogString}
 }
-`
+`;
 export const QueryGetBlogs = `
   query Blogs {
-  blogs {
-    documentId
-    title
-    descripton
-    content
-    image {
-      alternativeText
-      url
+    blogs ${blogString}
+    blogsPage {
+      hero {
+        title
+        description
+        background {
+          alternativeText
+          url
+        }
+      }
     }
-    createdAt
-  }
 }
-`
+`;

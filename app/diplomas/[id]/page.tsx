@@ -1,12 +1,16 @@
 import CardDiploma from '@/components/diploma/CardDiploma'
 import RichViewer from '@/components/diploma/RichViewer'
 import ImageGallery from '@/components/gallary/image-gallery'
+import VideoPlayer from '@/components/video/VideoPlayer'
+import { getRandomTwo } from '@/lib/array'
 import { api, BaseUrl } from '@/lib/axios'
 import {  QueryGetDiploma } from '@/lib/queryGraphql'
 import { DiplomaType} from '@/types/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+
+export const dynamic = "force-dynamic"
 
 export default async function page({
   params
@@ -40,7 +44,7 @@ export default async function page({
               Back to Diplomas
             </Link>
             <h2 className="text-3xl font-bold lg:text-5xl" style={{}}>{diploma.text}</h2>
-            {diploma.image && <Image className='h-96 w-full' src={BaseUrl + diploma?.image?.url} alt={diploma?.image?.alternativeText} width={1000} height={1000} />}
+            {diploma.image && <Image className='h-96 w-full' src={BaseUrl + diploma?.image?.url} alt={diploma?.image?.alternativeText || "alt"} width={1000} height={1000} />}
             <div className="flex items-center gap-x-5">
               <p className="text-xs sm:text-sm text-gray-800 dark:text-gray-300">{new Date(diploma.createdAt).toDateString()}</p>
             </div>
@@ -50,6 +54,9 @@ export default async function page({
             <p className="text-lg text-gray-800 dark:text-gray-300">
               <RichViewer content={diploma?.long_description} />
             </p>
+            {diploma?.video?.url && <div>
+              <VideoPlayer src={diploma.video.url}/>
+            </div>}
             <section>
               <ImageGallery images={diploma.images} />
             </section>
@@ -59,7 +66,7 @@ export default async function page({
       <div className="lg:col-span-2 w-40 lg:w-full lg:h-full lg:bg-gradient-to-r lg:from-gray-50  dark:lg:from-gray-950 lg:via-transparent lg:to-transparent">
         <div className="sticky top-0 start-0 py-8 lg:ps-8">
             {diplomas && <div className='space-y-4'>
-                {diplomas.map(diploma => <CardDiploma key={diploma.documentId} diploma={diploma} />)}
+                {getRandomTwo(diplomas).map(diploma => <CardDiploma key={diploma.documentId} diploma={diploma} />)}
             </div>}
         </div>
       </div>

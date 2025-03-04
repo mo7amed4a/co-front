@@ -1,10 +1,9 @@
-import BookingDrawer from '@/components/layout/BookingDrawer'
 import { BaseUrl } from '@/lib/axios'
 import { HeroType } from '@/types/types'
 import Image from 'next/image'
 import React from 'react'
 
-export default function Hero({
+export default function HeroBlog({
   data
 }:{
   data: HeroType
@@ -30,12 +29,12 @@ export default function Hero({
           <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
             <div className="bg-white dark:bg-gray-700 rounded shadow-2xl flex flex-col items-center justify-center p-7 sm:p-10">
               <Image src={"/logo/logo.png"} className='size-40' width={500} height={500} alt='' />
-              <BookingDrawer>
+              {/* <BookingDrawer>
                 <h3 className="mb-4 w-full text-center justify-center text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl flex items-center gap-3">
                   Register now
                   <span className='size-2 inline-block bg-red-500 p-1 rounded-full animate-ping'></span>
                 </h3>
-              </BookingDrawer>
+              </BookingDrawer> */}
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ export default function AboutSection({
       </div>
       <div className="w-full lg:justify-start justify-center items-start flex">
         <div className="sm:w-[564px] w-full sm:h-[646px] h-full sm:bg-gray-100 rounded-3xl sm:border border-gray-200 relative">
-          {data?.image &&<Image width={1264} height={1246} className="sm:mt-5 sm:ml-5 w-full h-full rounded-3xl object-cover" src={BaseUrl + data?.image?.url} alt={data?.image?.alternativeText} />}
+          {data?.image &&<Image width={1264} height={1246} className="sm:mt-5 sm:ml-5 w-full h-full rounded-3xl object-cover" src={BaseUrl + data?.image?.url} alt={data?.image?.alternativeText || "alt"} />}
         </div>
       </div>
     </div>
