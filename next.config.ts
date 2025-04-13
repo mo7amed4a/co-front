@@ -13,9 +13,13 @@ const nextConfig: NextConfig = {
         hostname: '192.168.1.5',
       },
       {
-        protocol: 'http',
-        hostname: '188.245.152.19',
-      }
+        protocol: 'https',
+        hostname: 'admin.co-partners.training',
+      },
+      {
+        protocol: 'https',
+        hostname: 'co-partners.training',
+      },
     ]
   }
 
