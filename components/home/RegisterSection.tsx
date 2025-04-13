@@ -1,5 +1,6 @@
 import React from 'react'
 import BookingForm from '../layout/bookingForm'
+import { BaseUrl } from '@/lib/axios';
 
 export default function RegisterSection({
     data
@@ -13,20 +14,26 @@ export default function RegisterSection({
       }
 }) {
   return (
-    <section className="bg--100 py-20 space-y-10">
-        <div className='text-center'>
-          <h2 className='text-lg font-bold md:text-xl'>{data?.title}</h2>
-        </div>
-        <div className="container grid grid-cols-2">
-          <div>
-            مش عارف اعمل اي هنا
-          </div>
-          <div>
-            <div className="lg:w-3/4 mx-auto">
-              <BookingForm />
+    <section className="py-24">
+      <div className='text-center text-xl font-semibold py-10'>{data.title}</div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
+          <div className="lg:mb-0 mb-10 order-2 lg:order-1">
+            <div className="group w-full h-full">
+              <div className="relative h-[30rem]">
+                <img
+                  src={BaseUrl+data.image.url}
+                  alt={data.image.alternativeText}
+                  className="w-full h-full rounded-none bg-blend-multiply bg-primary object-cover"
+                />
+              </div>
             </div>
           </div>
+          <div className="order-1 lg:order-2 flex items-center">
+            <BookingForm />
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
   )
 }

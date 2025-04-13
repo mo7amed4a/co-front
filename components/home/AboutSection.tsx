@@ -38,7 +38,7 @@ export default function AboutSection({
           </div>
         </div>
         <button className="sm:w-fit w-full group px-3.5 py-2 bg-primary/90 hover:bg-primary rounded-lg shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] transition-all duration-700 ease-in-out justify-center items-center flex">
-          <Link href="/about" className="px-1.5 text-primary-foreground text-sm font-medium leading-6 group-hover:-translate-x-0.5 transition-all duration-700 ease-in-out">ReadMore</Link>
+          <Link href="/about" className="px-1.5 text-primary-foreground text-sm font-medium leading-6 group-hover:-translate-x-0.5 transition-all duration-700 ease-in-out">Read More</Link>
           <svg className="group-hover:translate-x-0.5 transition-all duration-700 ease-in-out" xmlns="http://www.w3.org/2000/svg" width={18} height={18} viewBox="0 0 18 18" fill="none">
             <path d="M6.75265 4.49658L11.2528 8.99677L6.75 13.4996" stroke="#4F46E5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

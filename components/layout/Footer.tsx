@@ -18,7 +18,7 @@ export default async function Footer({
             <a className="flex-none text-xl font-semibold text-white" href="#" aria-label="Brand">
             <IconHome className='w-auto'/>
             </a>
-            <p className='text-white'>{data.description}</p>
+            <p className='text-white leading-relaxed font-normal'>{data.description}</p>
           </div>
           <div className='md:col-span-1 hidden lg:block'></div>
           <div className="col-span-1">

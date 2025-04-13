@@ -43,8 +43,8 @@ const ContactForm = () => {
   });
 
   return (
-    <div className="bg-gray-50 p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl order-1 lg:order-2">
-      <h2 className="text-primary font-manrope text-4xl font-semibold leading-10 mb-11">
+    <div className="bg-gray-200/5 p-5 lg:p-11 rounded-none order-1 lg:order-2">
+      <h2 className="text-primary font-manrope text-4xl font-normal leading-10 mb-11">
         Send Us A Message
       </h2>
       <form onSubmit={formik.handleSubmit}>
@@ -53,7 +53,7 @@ const ContactForm = () => {
             <input
               type="text"
               name={field}
-              className="w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-white text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4"
+              className="w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-white focus-visible:ring-0 font-normal leading-7 rounded-none border-gray-200 focus:outline-none pl-4"
               placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                 // @ts-expect-error @ts-ignore
               value={formik.values[field]}
@@ -69,7 +69,7 @@ const ContactForm = () => {
         ))}
         <button
           type="submit"
-          className="w-full h-12 text-white text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-indigo-800 bg-primary shadow-sm"
+          className="w-full h-12 text-white text-base font-semibold leading-6 rounded-none transition-all duration-700 hover:bg-indigo-800 bg-primary shadow-sm"
         >
           Send
         </button>

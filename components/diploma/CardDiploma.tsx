@@ -4,9 +4,8 @@ import Image from 'next/image'
 import { DiplomaType } from '@/types/types'
 import { BaseUrl } from '@/lib/axios'
 import { Button } from '../ui/button'
-import BookingDrawer from '../layout/BookingDrawer'
 import Link from 'next/link'
-import { Badge } from '../ui/badge'
+// import { Badge } from '../ui/badge'
 import { formatDate, fromNow } from '@/lib/moment'
 
 export default function CardDiploma({
@@ -14,19 +13,19 @@ export default function CardDiploma({
 }:{
   diploma: DiplomaType}) {
   return (
-    <Card className="overflow-hidden h-full md:w-72 rounded-none py-0">
+    <Card className="overflow-hidden h-full rounded-none py-0 border-none ">
       <CardHeader className="!p-0 !overflow-hidden relative">
         <Image
-          className="h-64 md:h-40 w-full"
+          className="h-64 w-full"
           src={BaseUrl + diploma?.image?.url}
           alt={diploma?.image?.alternativeText || "alt" || "jd"}
           width={1000}
           height={1000}
         />
-        {diploma?.badge && (
+        {/* {diploma?.badge && (
           <Badge className="absolute top-1 end-2">{diploma?.badge}</Badge>
-        )}
-        <div
+        )} */}
+        {/* <div
           style={{ clipPath: "polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
           className="flex justify-end bg-white item-center absolute -bottom-1 end-0 ps-5 pe-2"
         >
@@ -42,11 +41,11 @@ export default function CardDiploma({
               ${diploma.price}
             </div>
           )}
-        </div>
+        </div> */}
       </CardHeader>
       <CardContent className="py-4 px-2">
-        <Link href={`/diplomas/${diploma.documentId}`} className=" space-y-0.5">
-          <CardTitle className="line-clamp-2">{diploma.text}</CardTitle>
+        <Link href={`/diplomas/${diploma.documentId}`} className=" space-y-2">
+          <CardTitle className="line-clamp-2 font-normal leading-relaxed">{diploma.text}</CardTitle>
           <div className="text-sm font-normal text-gray-400 flex justify-between">
             <small>{formatDate(diploma?.date)}</small>
             <small>{fromNow(diploma?.date)}</small>
@@ -57,11 +56,11 @@ export default function CardDiploma({
         </Link>
       </CardContent>
       <CardFooter>
-        <BookingDrawer diploma={diploma}>
-          <Button className="w-full rounded-none duration-300 transition-all hover:bg-primary/80 hover:scale-105">
+        <Link href={`/diplomas/${diploma.documentId}`} className='w-full'>
+          <Button variant={"ghost"} className="w-full rounded-none duration-300 transition-all bg-gray-500/10 hover:scale-105">
             Register
           </Button>
-        </BookingDrawer>
+        </Link>
       </CardFooter>
     </Card>
   );

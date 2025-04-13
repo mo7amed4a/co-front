@@ -1,4 +1,3 @@
-import BlogCard from '@/components/blog/blog'
 import RichViewer from '@/components/diploma/RichViewer'
 import { api } from '@/lib/axios'
 import { QueryGetBlog } from '@/lib/queryGraphql'
@@ -21,7 +20,7 @@ export default async function page({
         "documentId": id
     }
   })
-  const {blogs, blog}:BlogsQuery = res.data.data
+  const {blog}:BlogsQuery = res.data.data
 
   return (
     <div>
@@ -29,8 +28,8 @@ export default async function page({
 
 <div className="bg-white dark:bg-gray-800 dark:text-white">
   <div className="max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <div className="grid lg:grid-cols-5 gap-y-8 lg:gap-y-0 lg:gap-x-6">
-      <div className="lg:col-span-3">
+    <div className="grid lg:grid-cols-5 gap-y-8 lg:gap-y-0 lg:gap-x-6 max-w-4xl mx-auto">
+      <div className="lg:col-span-full">
         <div className="py-8 lg:pe-8">
          {blog && <div className="space-y-5 lg:space-y-8">
             <Link className="inline-flex items-center gap-x-1.5 text-sm text-gray-500 decoration-2 hover:underline" href="/">
@@ -52,13 +51,13 @@ export default async function page({
           </div>}
         </div>
       </div>
-      <div className="lg:col-span-2 w-40 lg:w-full lg:h-full lg:bg-gradient-to-r lg:from-gray-50  dark:lg:from-gray-950 lg:via-transparent lg:to-transparent">
+      {/* <div className="lg:col-span-2 w-40 lg:w-full lg:h-full lg:bg-gradient-to-r lg:from-gray-50  dark:lg:from-gray-950 lg:via-transparent lg:to-transparent">
         <div className="sticky top-0 start-0 py-8 lg:ps-8">
             {blogs && <div className='space-y-4'>
                 {blogs.map(blog => <BlogCard col key={blog.documentId} blog={blog} />)}
             </div>}
         </div>
-      </div>
+      </div> */}
     </div>
   </div>
 </div>

@@ -22,7 +22,7 @@ export default async function page() {
         <div className="flex justify-center text-center">
           <h1 className="text-lg md:text-2xl font-bold py-4">Diplomas</h1>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {diplomas.map((diploma) => (
             <div
               className="w-full"

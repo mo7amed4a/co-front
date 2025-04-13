@@ -82,7 +82,7 @@ export default function BookingForm() {
         fetchDiplomas();
       }, []);
   return (
-    <form
+    <form className="w-full"
     onSubmit={formik.handleSubmit}
     >
     <div className="grid gap-8 w-full">

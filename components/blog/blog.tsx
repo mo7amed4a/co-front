@@ -23,9 +23,9 @@ export default function BlogCard({
             <Image src={BaseUrl + blog?.image.url} className={`${col ? 'size-full' : "size-full lg:h-72"}`} width={1200} height={1200} alt={blog?.image?.alternativeText || "alt"}/>
         </CardHeader>
         <Link href={`/blogs/${blog?.documentId}`} className={`${col? "flex flex-col justify-center h-full" : "pt-8"}`} >
-            <CardContent className={` px-0 space-y-2`}>
-                <time className='text-[#6840c6]'>{new Date(blog?.createdAt).toDateString()}</time>
-                <CardTitle className={`${dark && "text-white"} flex justify-between`}>{blog?.title} <ArrowUpRight /></CardTitle>
+            <CardContent className={` px-0 space-y-2 pt-4`}>
+                <time className='text-gray-400'>{new Date(blog?.createdAt).toDateString()}</time>
+                <CardTitle className={`${dark && "text-white"} flex justify-between font-normal leading-relaxed`}>{blog?.title} <ArrowUpRight /></CardTitle>
                 <CardDescription className={`${dark && "text-gray-200"}`}>{blog?.descripton}</CardDescription>
             </CardContent>
         </Link>
