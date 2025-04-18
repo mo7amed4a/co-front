@@ -101,6 +101,13 @@ export interface HomeType {
       url: string;
     };
   };
+  tot : {
+    title_section: string
+    description: []
+    image : Image
+  }
+  logos: any
+  rating: any
 }
 
 export interface Blog {

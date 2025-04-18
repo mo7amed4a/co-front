@@ -6,6 +6,7 @@ import { diplomaString } from "@/lib/queryGraphql";
 import { DiplomaType } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
+import HeroAbout from "./_components/Hero";
 
 export const dynamic = "force-dynamic";
 
@@ -26,8 +27,16 @@ export default async function AboutPage() {
               color
             }
           }
+            about_hero {
+              title
+              description
+              background {
+                alternativeText
+                url
+              }
+            }
         }
-          diplomas ${diplomaString}
+        diplomas ${diplomaString}
       }`,
   });
   const data = res.data.data.about;
@@ -35,11 +44,12 @@ export default async function AboutPage() {
 
   return data && (
     <div>
+      <HeroAbout data={data.about_hero}/>
       {/* Classic and Chic About Section */}
-      <section className="container mx-auto px-4 py-16 max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative">
           {/* Image Section */}
-          <div className="relative">
+          <div className="lg:sticky top-20">
             <div className="w-full h-[450px] overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] duration-300">
                 <Image
                   src={BaseUrl + data.image.url}
@@ -63,7 +73,7 @@ export default async function AboutPage() {
               {data.title}
             </h1>
             <div className="text-gray-600 leading-relaxed text-lg">
-              <RichViewer content={data.description} />
+              <RichViewer content={data.description} className="" />
             </div>
             <div className="flex flex-wrap gap-4">
               {data.social.links.map(

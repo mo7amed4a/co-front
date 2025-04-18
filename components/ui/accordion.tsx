@@ -14,24 +14,27 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => <AccordionPrimitive.Item ref={ref} className={cn(className)} {...props} />)
 AccordionItem.displayName = "AccordionItem"
 
-const AccordionTrigger = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        "flex flex-1 items-center justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-45",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-      <Plus className="h-6 w-6 shrink-0 text-[#1e5144] transition-transform duration-200" />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
-))
+interface AccordionTriggerProps extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> {
+  hideIcon?: boolean
+}
+
+const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Trigger>, AccordionTriggerProps>(
+  ({ className, children, hideIcon = false, ...props }, ref) => (
+    <AccordionPrimitive.Header className="flex">
+      <AccordionPrimitive.Trigger
+        ref={ref}
+        className={cn(
+          "flex flex-1 items-center justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-45",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+        {!hideIcon && <Plus className="h-6 w-6 shrink-0 text-[#1e5144] transition-transform duration-200" />}
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.Header>
+  ),
+)
 AccordionTrigger.displayName = "AccordionTrigger"
 
 const AccordionContent = React.forwardRef<

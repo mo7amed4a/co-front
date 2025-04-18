@@ -58,7 +58,7 @@ export default function ComingSoonSection({
 
             {/* Date */}
             <div>
-              <small className="text-green-500 font-medium">
+              <small className="font-medium">
                 <time>{new Date(diploma.date).toDateString()}</time>
               </small>
             </div>
@@ -69,7 +69,7 @@ export default function ComingSoonSection({
             <div className="flex items-baseline gap-2">
               {diploma.discount > 0 ? (
                 <>
-                  <span className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  <span className="text-2xl font-bold">
                     ${(diploma.price * (1 - diploma.discount / 100)).toFixed(2)}
                   </span>
                   <span className="text-sm line-through text-gray-400">
@@ -77,7 +77,7 @@ export default function ComingSoonSection({
                   </span>
                 </>
               ) : (
-                <span className="text-2xl font-bold text-green-600 dark:text-green-400">
+                <span className="text-2xl font-bold ">
                   ${diploma.price}
                 </span>
               )}

@@ -22,7 +22,7 @@ export default function Hero({ slides, align}: { slides?: Slider[], align?: "cen
       loop
       // navigation
       pagination={{ clickable: true }}
-      className="w-full h-auto"
+      className="w-full h-auto bg-black"
     >
       {slides?.map((slide, index) => (
         <SwiperSlide key={index}>

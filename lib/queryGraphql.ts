@@ -104,6 +104,33 @@ export const QueryHome = ` query HomePage {
         url
       }
     }
+    tot {
+      title_section
+      description
+      image {
+         alternativeText
+         url
+      }
+    }
+    logos {
+      title_section
+      image {
+        alternativeText
+        url
+      }
+    }
+    rating {
+      title
+      ratings {
+        comment
+        job
+        full_name
+        image {
+          alternativeText
+          url
+        }
+      }
+    }
   }
 }
 `;

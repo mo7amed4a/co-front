@@ -11,12 +11,13 @@ export default async function Footer({
 }) {
 
   return (
-    <footer className="mt-auto bg-primary w-full">
+    <footer className="mt-auto bg-primary w-full relative">
+      <img src={'/test/footer-shape-left.webp'} className="w-full h-full object-cover absolute inset-0 " />
       <div className="mt-auto w-full max-w-7xl py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
           <div className="col-span-full md:col-span-2">
             <a className="flex-none text-xl font-semibold text-white" href="#" aria-label="Brand">
-            <IconHome className='w-auto'/>
+              <IconHome className='w-auto -ms-5'/>
             </a>
             <p className='text-white leading-relaxed font-normal'>{data.description}</p>
           </div>
@@ -29,7 +30,6 @@ export default async function Footer({
                   <p key={link.id}><Link className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" href={link.link}>{link.title}</Link></p>
                 ))
               }
-             
             </div>
           </div>
           <div className="space-y-4 col-span-1">
@@ -52,7 +52,7 @@ export default async function Footer({
               </div>
       
         </div>
-        <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
+        <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center border-t border-t-gray-400 pt-4">
           <div className="flex justify-between items-center">
             <p className="text-sm text-gray-400">© {new Date().getFullYear()}. All rights reserved.</p>
           </div>

@@ -4,6 +4,8 @@ import Header from './Header'; // افترض إن ده مكون الـ Header ب
 import { Toaster } from '../ui/sonner';
 import { usePathname } from 'next/navigation';
 
+
+
 const HeaderLayout = ({ links }: { links: any }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
@@ -16,12 +18,13 @@ const HeaderLayout = ({ links }: { links: any }) => {
         setIsScrolled(false);
       }
     };
-
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const isActive =  pathname === '/' || pathname === '/blogs' || pathname === '/diplomas'
+  
+  const isPage = ["/",'/blogs','/diplomas' ,'/about', '/tot', '/feedback'  ]
+  const isActive =  isPage.includes(pathname)
 
   return (
    <>
@@ -30,7 +33,7 @@ const HeaderLayout = ({ links }: { links: any }) => {
         isScrolled ? 'bg-primary/70 backdrop-blur-sm ' : isActive ? 'bg-transparent' : 'bg-primary/90 backdrop-blur-sm '
       }`}
     >
-      <Header links={links} />
+      <Header links={links} isScrolled={isScrolled}/>
       <Toaster position="top-center" />
     </div>
     {!isActive && <div className="h-16" />}
