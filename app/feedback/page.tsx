@@ -3,6 +3,8 @@ import { api } from "@/lib/axios";
 import React from "react";
 import HeroFeedback from "./_components/Hero";
 
+export const dynamic = "force-dynamic";
+
 export default async function page() {
   const res = await api.post("", {
     query: `query Ratings {
